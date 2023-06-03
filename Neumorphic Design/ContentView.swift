@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         
         ZStack {
-            Color.green.opacity(0.4)
+            Color(red: 132, green: 136, blue: 132)
                 .ignoresSafeArea()
             
             RoundedRectangle(cornerRadius: 15)
@@ -47,9 +47,21 @@ struct ContentView: View {
                                         Group {
                                             
                                             if selectedItem == textArray[index] {
+                                                
                                                 Circle()
                                                     .fill(Color.green.opacity(0.4))
-                                                    .fr
+                                                    .frame(width: 28, height: 28)
+                                                    .shadow(color: .gray.opacity(0.14), radius: 1, x: -2, y: -2)
+                                                    .shadow(color: .white, radius: 1, x: 1, y: 1)
+                                                
+                                            } else {
+                                                
+                                                Circle()
+                                                    .fill(Color.green.opacity(0.4))
+                                                    .frame(width: 28, height: 28)
+                                                    .shadow(color: .white, radius: 2, x: -2, y: -2)
+                                                    .shadow(color: .gray.opacity(0.5), radius: 2, x: 2, y: 2)
+                                                    
                                             }
                                         }
                                     })
