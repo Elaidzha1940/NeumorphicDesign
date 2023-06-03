@@ -35,7 +35,7 @@ struct ContentView: View {
                 .frame(width: 300, height: 300)
                 .overlay {
                     
-                    VStack {
+                    VStack(spacing: 20) {
                         ForEach(textArray.indices, id: \.self) { index in
                             HStack {
                                 Circle()
@@ -43,6 +43,21 @@ struct ContentView: View {
                                     .frame(width: 35, height: 35)
                                     .shadow(color: .white, radius: 5, x: -5, y: -5)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 5, y: 5)
+                                    .overlay(content: {
+                                        Group {
+                                            
+                                            if selectedItem == textArray[index] {
+                                                Circle()
+                                                    .fill(Color.green.opacity(0.4))
+                                                    .fr
+                                            }
+                                        }
+                                    })
+                                    .onTapGesture {
+                                        withAnimation {
+                                            selectedItem = textArray[index]
+                                        }
+                                    }
                                 
                                 Text(textArray[index])
                                     .foregroundColor(selectedItem == textArray[index] ? Color.black : Color.gray)
@@ -51,10 +66,13 @@ struct ContentView: View {
                                             .system(.title3))
                                     .padding(.leading, selectedItem == textArray[index] ? 20 : 10)
                                 
-                                
+                                Spacer()
                             }
                         }
                     }
+                    .padding()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .padding()
                 }
         }
     }
