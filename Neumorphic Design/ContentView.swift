@@ -11,12 +11,14 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var selectedItem: String = ""
+    
     let textArray = ["1. Europe", "2. Asia", "Africa", "South America"]
     
     var body: some View {
         
         ZStack {
-            Color.red
+            Color.green.opacity(0.4)
                 .ignoresSafeArea()
             
             RoundedRectangle(cornerRadius: 15)
@@ -34,10 +36,17 @@ struct ContentView: View {
                 .overlay {
                     
                     VStack {
-                        
                         ForEach(textArray.indices, id: \.self) { index in
-                            
-                            
+                            HStack {
+                                Circle()
+                                    .fill(Color.green.opacity(0.4))
+                                    .frame(width: 35, height: 35)
+                                    .shadow(color: .white, radius: 5, x: -5, y: -5)
+                                    .shadow(color: .gray.opacity(0.5), radius: 5, x: 5, y: 5)
+                                
+                                Text()
+                                
+                            }
                         }
                     }
                 }
