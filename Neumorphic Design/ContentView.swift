@@ -11,13 +11,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        ZStack {
+            Color.red
+                .ignoresSafeArea()
+            
+            RoundedRectangle(cornerRadius: 15)
+                .fill(
+                
+                    Color.blue
+                        .shadow(.inner(color:
+                                .white.opacity(0.7),
+                                       radius: 5, x: -5, y: -5))
+                        .shadow(.inner(color:
+                                .gray.opacity(0.7),
+                                       radius: 5, x: -5, y: -5))
+                )
         }
-        .padding()
     }
 }
 
