@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @State private var selectedItem: String = ""
     
-    let textArray = ["1. Europe", "2. Asia", "Africa", "South America"]
+    let textArray = ["1. Europe", "2. Asia", "3. Africa", "4. South America"]
     
     var body: some View {
         
@@ -44,7 +44,13 @@ struct ContentView: View {
                                     .shadow(color: .white, radius: 5, x: -5, y: -5)
                                     .shadow(color: .gray.opacity(0.5), radius: 5, x: 5, y: 5)
                                 
-                                Text()
+                                Text(textArray[index])
+                                    .foregroundColor(selectedItem == textArray[index] ? Color.black : Color.gray)
+                                    .font(selectedItem == textArray[index] ? .system(.title3)
+                                        .bold() :
+                                            .system(.title3))
+                                    .padding(.leading, selectedItem == textArray[index] ? 20 : 10)
+                                
                                 
                             }
                         }
